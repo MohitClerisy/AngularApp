@@ -1,0 +1,18 @@
+<p>test works!</p>
+<button (click)="logout()">logout</button>
+<h1>Name:</h1>{{profile?.name}}
+<h1>User Name:</h1>{{profile?.username}}
+<h1>Email:</h1>{{profile?.email}}
+<h1>Posts Table</h1>
+<table class="test-table">
+    <thead>
+        <th>Title</th>
+        <th>Description</th>
+    </thead>
+    <tbody *ngIf="profile">
+        <tr *ngFor="let post of profile.posts">
+            <td>{{post.title}}</td>
+            <td>{{post.description}}</td>
+        </tr>
+    </tbody>
+</table>

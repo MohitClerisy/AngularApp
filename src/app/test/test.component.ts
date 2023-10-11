@@ -40,6 +40,11 @@ export class TestComponent {
     });
   }
 
+  /**
+   * Logs the user out by clearing the token in local storage and navigating to the login page.
+   *
+   * @return {void} This function does not return a value.
+   */
   logout(): void {
     localStorage.setItem('token', '');
     this.router.navigate(["/login"]);

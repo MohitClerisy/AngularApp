@@ -55,16 +55,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // onAuthorize():void {
-  //   const payload = {
-  //     email:"mohit@clerisysolutions.com",
-  //     password:"csolution"
-  //   }
-  //   this.apiService.post('auth/login',payload).subscribe(response => {
-  //     console.log(response);
-  //     this.data = response;
-  //     localStorage.setItem('token',this.data.token);
-  //   })
-  // }
-
 }

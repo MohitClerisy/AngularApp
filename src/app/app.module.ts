@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
-import { LoginComponent } from './login/login.component'; 
+import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatCommonModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCommonModule,
+    MatCardModule,
+    MatTableModule
   ],
   providers: [
     {

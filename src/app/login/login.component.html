@@ -1,43 +1,20 @@
-<div class="login-form">
-    <div class="card">
-        <h2 class="head py-2">Login</h2>
-        <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-            <div class="row">
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>Username: </label>
-                    <input type="email" class="form-control mb-2" id="inputEmail" formControlName="email"
-                        placeholder="Enter Email">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <div *ngIf="submitted && formControl.email.errors" class="text-danger">
-                        <div *ngIf="formControl.email.errors.email">Email must be valid.</div>
-                        <div *ngIf="formControl.email.errors.required">Email is required.</div>
-                    </div>
-                </div>
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>Password: </label>
-                    <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password"
-                        placeholder="Enter Password">
-                    <div *ngIf="submitted && formControl.password.errors" class="text-danger">
-                        <div *ngIf="formControl.password.errors.required">Password is required.</div>
-                        <div *ngIf="formControl.password.errors.pattern">
-                            <!-- <h3>Password must contain the following:</h3> -->
-                            <ul>
-                                <li>Password should be alphanumeric</li>
-                                <li>A letter of the password should be capital</li>
-                                <li>Password must contain a special character (@, $, !, &, etc)</li>
-                                <li>Password length must be greater than 7 characters</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="buttons text-center">
-                <button class="btn-customBlue mr-2" type="submit">Login</button>
-            </div>
-            <div class="buttons text-center">
-                <button class="btn-customBlue mr-2" type="button"> <a href="/register">Register</a></button>
-            </div>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+        <h5><u><i>Login Form using Angular Material!!</i></u></h5>
+        <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>User Name</mat-label>
+                <input matInput type="email" class="form-control mb-2" id="inputEmail" formControlName="email"
+                    placeholder="Enter Email">
+            </mat-form-field><br><br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" class="form-control mb-2" id="inputPassword" formControlName="password"
+                    placeholder="Enter Password">
+            </mat-form-field><br>
+            <button mat-raised-button color="primary" type="submit">Login</button>&nbsp;
+            <button mat-raised-button color="primary" type="button"> <a href="/register"
+                    color="primary">Register</a></button>
         </form>
-    </div>
+    </mat-card>
 </div>

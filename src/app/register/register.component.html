@@ -1,60 +1,32 @@
-<div class="login-form">
-    <div class="card">
-        <h2 class="head py-2">Register</h2>
-        <form class="user-login" [formGroup]="registerForm" (ngSubmit)="onRegister()">
-            <div class="row">
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>Name: </label>
-                    <input type="text" class="form-control mb-2" id="inputName" formControlName="name"
+<div>
+    <h3><i>Registration Form using Angular Material!!</i></h3>
+    <form class="user-login" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxFlex="100" fxLayoutAlign="end">
+            <div fxFlex.xl="15" fxFlex.lg="20" fxFlex.md="30" fxFlex.sm="50" fxFlex.xs="100">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Name: </mat-label>
+                    <input matInput type="text" class="form-control mb-2" id="inputName" formControlName="name"
                         placeholder="Enter Your Name">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <!-- <div *ngIf="submitted && formControl.name.errors" class="text-danger">
-                    <div *ngIf="formControl.name.errors.required">Name is required.</div>
-                </div> -->
-                </div>
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>User Name: </label>
-                    <input type="text" class="form-control mb-2" id="inputUsername" formControlName="username"
+                </mat-form-field><br><br>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>User Name: </mat-label>
+                    <input matInput type="text" class="form-control mb-2" id="inputUsername" formControlName="username"
                         placeholder="Enter UserName">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <!-- <div *ngIf="submitted && formControl.username.errors" class="text-danger">
-                  <div *ngIf="formControl.username.errors.required">UserName is required.</div>
-                </div> -->
-                </div>
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>Email: </label>
-                    <input type="email" class="form-control mb-2" id="inputEmail" formControlName="email"
+                </mat-form-field><br><br>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email: </mat-label>
+                    <input matInput type="email" class="form-control mb-2" id="inputEmail" formControlName="email"
                         placeholder="Enter Email">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <!-- <div *ngIf="submitted && formControl.email.errors" class="text-danger">
-              <div *ngIf="formControl.email.errors.email">Email must be valid.</div>
-              <div *ngIf="formControl.email.errors.required">Email is required.</div>
-            </div> -->
-                </div>
-                <div class="col-md-12 roundedTextBox mb-3">
-                    <label>Password: </label>
-                    <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password"
-                        placeholder="Enter Password">
-                    <!-- <div *ngIf="submitted && formControl.password.errors" class="text-danger">
-              <div *ngIf="formControl.password.errors.required">Password is required.</div>
-              <div *ngIf="formControl.password.errors.pattern">
-                <ul>
-                  <li>Password should be alphanumeric</li>
-                  <li>A letter of the password should be capital</li>
-                  <li>Password must contain a special character (@, $, !, &, etc)</li>
-                  <li>Password length must be greater than 7 characters</li>
-                </ul>
-              </div>
-            </div> -->
-                </div>
+                </mat-form-field><br><br>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" class="form-control mb-2" id="inputPassword"
+                        formControlName="password" placeholder="Enter Password">
+                </mat-form-field><br>
             </div>
-            <br>
-            <div class="buttons text-center">
-                <button class="btn-customBlue mr-2" type="submit">Register</button>
-            </div>
-            <div class="buttons text-center">
-                <button class="btn-customBlue mr-2" type="button"> <a href="/login">login</a></button>
-            </div>
-        </form>
-    </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Register</button>&nbsp;
+        <button mat-raised-button color="primary" type="button"> <a href="/login" color="primary"
+                style="text-decoration: none;color: antiquewhite;">Login</a></button>
+    </form>
 </div>

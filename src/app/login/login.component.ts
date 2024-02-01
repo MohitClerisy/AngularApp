@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
         "",
         [
           Validators.required,
+          // Validators.pattern(
+          //   "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>\"'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}"
+          // )
         ]
       ]
     });
@@ -40,6 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
+    // console.log(this.loginForm.value);
     this.submitted = true;
     if (this.loginForm.valid) {
       const payload = this.loginForm.getRawValue();

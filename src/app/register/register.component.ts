@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       const payload = this.registerForm.getRawValue();
       console.log('payload', payload)
-      this.apiService.post('auth/register', payload).subscribe(response => {
+      this.apiService.post('register', payload).subscribe(response => {
         this.data = response;
         this.router.navigate(["/login"]);
       })

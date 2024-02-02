@@ -43,13 +43,12 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    // console.log(this.loginForm.value);
     this.submitted = true;
     if (this.loginForm.valid) {
       const payload = this.loginForm.getRawValue();
-      this.apiService.post('auth/login', payload).subscribe(response => {
+      this.apiService.post('login', payload).subscribe(response => {
         this.data = response;
-        localStorage.setItem('token', this.data.token);
+        localStorage.setItem('token', this.data.access_token);
         this.router.navigate(["/test"]);
       })
     }

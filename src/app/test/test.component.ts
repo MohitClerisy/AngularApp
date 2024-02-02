@@ -18,10 +18,10 @@ export class TestComponent {
 
   }
   ngOnInit(): void {
-    const payload = {
-      email: "mohit@clerisysolutions.com",
-      password: "csolution"
-    }
+    // const payload = {
+    //   email: "mohit@clerisysolutions.com",
+    //   password: "csolution"
+    // }
 
     // const myProfile = this.apiService.get('user/my-profile');
     // this.apiService.post('auth/login',payload).subscribe(response => {
@@ -34,7 +34,7 @@ export class TestComponent {
     //   });
     // })
 
-    this.apiService.get('user/my-profile').subscribe(response => {
+    this.apiService.get('me').subscribe(response => {
       this.profile = response;
       console.log(this.profile);
     });
@@ -46,8 +46,11 @@ export class TestComponent {
    * @return {void} This function does not return a value.
    */
   logout(): void {
-    localStorage.setItem('token', '');
-    this.router.navigate(["/login"]);
+    this.apiService.post('logout',{}).subscribe(response => {
+      localStorage.setItem('token', '');
+      this.router.navigate(["/login"]);
+      console.log(response);
+    });
   }
 
 }

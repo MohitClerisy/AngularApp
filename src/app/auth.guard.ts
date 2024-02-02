@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
-  CanActivate, Router,
+  Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  CanActivateFn
 } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
-
+export class PermissionsService {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -27,4 +27,8 @@ export class AuthGuard implements CanActivate {
     // For instance, you could check a service or local storage.
     return !!localStorage.getItem('token'); // Just an example. Do not use directly in production.
   }
+}
+
+export const AuthGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
+  return inject(PermissionsService).canActivate(next, state);
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss']
 })
-export class TestComponent {
+export class TestComponent implements OnInit {
   data: any;
   profile: any;
 
@@ -20,6 +20,10 @@ export class TestComponent {
 
   }
   ngOnInit(): void {
+    this.getProfile();
+  }
+
+  getProfile(): void {
     this.apiService.get('me').subscribe(response => {
       this.profile = response;
       console.log(this.profile);

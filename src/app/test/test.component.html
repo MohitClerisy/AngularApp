@@ -1,8 +1,9 @@
 <p>test works!</p>
-<button (click)="logout()">logout</button>
-<h1>Name:</h1>{{profile?.name}}
-<h1>User Name:</h1>{{profile?.username}}
-<h1>Email:</h1>{{profile?.email}}
+<button (click)="logout()" mat-raised-button color="primary">logout</button><br><br>
+<h1>Profile</h1>
+<span><strong>Name:</strong> {{profile?.name}}</span><br>
+<span><strong>User Name:</strong> {{profile?.username ?? profile?.email}}</span><br>
+<span><strong>Email:</strong> {{profile?.email}}</span><br>
 <h1>Posts Table</h1>
 <table class="test-table">
     <thead>
@@ -12,7 +13,7 @@
     <tbody *ngIf="profile">
         <tr *ngFor="let post of profile.posts">
             <td>{{post.title}}</td>
-            <td>{{post.description}}</td>
+            <td>{{post.content}}</td>
         </tr>
     </tbody>
 </table>

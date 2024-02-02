@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-test',
@@ -14,26 +15,11 @@ export class TestComponent {
   constructor(
     private apiService: ApiService,
     private router: Router,
+    private snackBar: MatSnackBar
   ) {
 
   }
   ngOnInit(): void {
-    // const payload = {
-    //   email: "mohit@clerisysolutions.com",
-    //   password: "csolution"
-    // }
-
-    // const myProfile = this.apiService.get('user/my-profile');
-    // this.apiService.post('auth/login',payload).subscribe(response => {
-    //   console.log(response);
-    //   this.data = response;
-    //   localStorage.setItem('token',this.data.token);
-    //   myProfile.subscribe(response => {
-    //     this.profile = response;
-    //     console.log(this.profile);
-    //   });
-    // })
-
     this.apiService.get('me').subscribe(response => {
       this.profile = response;
       console.log(this.profile);
@@ -50,6 +36,10 @@ export class TestComponent {
       localStorage.setItem('token', '');
       this.router.navigate(["/login"]);
       console.log(response);
+      this.data = response;
+      this.snackBar.open(this.data.message, 'Close', {
+        duration: 2000, 
+      });
     });
   }
 

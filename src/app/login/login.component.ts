@@ -2,6 +2,7 @@ import { Component, OnInit, VERSION } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private snackBar: MatSnackBar
   ) {
 
   }
@@ -38,6 +40,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  openSnackBar(message: string, action: string = 'Close') {
+    this.snackBar.open(message, action, {
+      duration: 2000, // Duration in milliseconds
+    });
+  }
+
   get formControl() {
     return this.loginForm.controls;
   }
@@ -49,6 +57,7 @@ export class LoginComponent implements OnInit {
       this.apiService.post('login', payload).subscribe(response => {
         this.data = response;
         localStorage.setItem('token', this.data.access_token);
+        this.openSnackBar(`Your Token will expire in ${this.data.expires_in} seconds.`, 'Dismiss');
         this.router.navigate(["/test"]);
       })
     }

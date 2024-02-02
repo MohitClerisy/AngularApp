@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCommonModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatCommonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [
     {
